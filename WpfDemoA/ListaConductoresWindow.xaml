@@ -1,0 +1,149 @@
+﻿<Window x:Class="WpfDemoA.ListaConductoresWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemoA"
+        mc:Ignorable="d"
+         Title="Lista de Conductores" 
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#f8f9fa" Offset="0"/>
+                <GradientStop Color="#e9ecef" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#28a745" Padding="20,15">
+            <Grid>
+                <TextBlock Text="Lista de Conductores" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White"
+                          VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnActualizar" 
+                           Content="🔄 Actualizar" 
+                           Background="#17a2b8"
+                           Foreground="White"
+                           BorderThickness="0"
+                           Padding="15,8"
+                           FontWeight="Bold"
+                           Cursor="Hand"
+                           Margin="0,0,10,0"
+                           Click="BtnActualizar_Click"/>
+
+                    <Button x:Name="btnVolver" 
+                           Content="Volver al Menú" 
+                           Background="#6c757d"
+                           Foreground="White"
+                           BorderThickness="0"
+                           Padding="15,8"
+                           FontWeight="Bold"
+                           Cursor="Hand"
+                           Click="BtnVolver_Click"/>
+
+                    <Button x:Name="btnEliminar"
+                        Content="🗑 Eliminar"
+                        Background="#dc3545"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Padding="15,8"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Margin="0,0,10,0"
+                        Click="BtnEliminar_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Contenido -->
+        <Grid Grid.Row="1" Margin="20">
+
+            <!-- Mensaje cuando no hay datos -->
+            <TextBlock x:Name="lblSinDatos" 
+                      Text="No hay conductores registrados. Vaya al módulo de Mantenimientos > Conductores para agregar nuevos conductores."
+                      FontSize="16"
+                      Foreground="#6c757d"
+                      TextAlignment="Center"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      TextWrapping="Wrap"
+                      Visibility="Collapsed"/>
+
+            <!-- DataGrid -->
+            <Border Background="White" 
+                   CornerRadius="10" 
+                   BorderThickness="1"
+                   BorderBrush="#dee2e6"
+                   Padding="0">
+
+                <DataGrid x:Name="dgConductores" 
+                         AutoGenerateColumns="False"
+                         CanUserAddRows="False"
+                         CanUserDeleteRows="False"
+                         CanUserReorderColumns="False"
+                         CanUserResizeRows="False"
+                         SelectionMode="Single"
+                         HeadersVisibility="Column"
+                         GridLinesVisibility="Horizontal"
+                         HorizontalGridLinesBrush="#dee2e6"
+                         AlternatingRowBackground="#f8f9fa"
+                         RowBackground="White"
+                         FontSize="14">
+
+                    <DataGrid.Columns>
+
+                        <!-- Columna ID (oculta) -->
+                        <DataGridTextColumn Header="ID" 
+                                           Binding="{Binding Id}" 
+                                           Visibility="Hidden"/>
+
+                        <!-- Columna Nombre -->
+                        <DataGridTextColumn Header="Nombre Conductor" 
+                                           Binding="{Binding Nombre}" 
+                                           Width="*"/>
+
+                        <!-- Columna Tipo de Documento -->
+                        <DataGridTextColumn Header="Tipo Doc." 
+                                           Binding="{Binding TipoDocumento}" 
+                                           Width="120"/>
+
+                        <!-- Columna Número Documento -->
+                        <DataGridTextColumn Header="Número Documento" 
+                                           Binding="{Binding NumeroDocumento}" 
+                                           Width="150"/>
+
+                        <!-- Columna Teléfono -->
+                        <DataGridTextColumn Header="Teléfono" 
+                                           Binding="{Binding Telefono}" 
+                                           Width="150"/>
+
+                        <!-- Columna Estado -->
+                        <DataGridTextColumn Header="Estado" 
+                                           Binding="{Binding Estado}" 
+                                           Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="#f1f3f5" Padding="10" BorderThickness="1,0,0,0" BorderBrush="#dee2e6">
+            <TextBlock Text="Mostrando lista de conductores registrados en el sistema" 
+                      Foreground="#6c757d"
+                      FontStyle="Italic"
+                      HorizontalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>

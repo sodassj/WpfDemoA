@@ -1,0 +1,166 @@
+﻿<Window x:Class="WpfDemoA.ConductoresWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemoA"
+        mc:Ignorable="d"
+        Title="Registro de Conductores" 
+        Height="600" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#f8f9fa" Offset="0"/>
+                <GradientStop Color="#e9ecef" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#28a745" Padding="20,15">
+            <Grid>
+                <TextBlock Text="Registro de Conductores" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White"
+                          VerticalAlignment="Center"/>
+                <Button x:Name="btnVolver" 
+                        Content="Volver al Menú" 
+                        HorizontalAlignment="Right"
+                        Background="#6c757d"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Padding="15,8"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Click="BtnVolver_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Contenido -->
+        <ScrollViewer Grid.Row="1" Margin="30">
+            <StackPanel>
+
+                <!-- Mensaje de estado -->
+                <TextBlock x:Name="lblMensaje" 
+                           Margin="0,0,0,20"
+                           TextAlignment="Center"
+                           FontWeight="Bold"
+                           FontSize="14"
+                           Visibility="Collapsed"/>
+
+                <!-- Formulario -->
+                <Border Background="White" 
+                        CornerRadius="10" 
+                        Padding="30"
+                        BorderThickness="1"
+                        BorderBrush="#dee2e6">
+
+                    <StackPanel>
+
+                        <!-- Nombre Conductor -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Nombre Conductor:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="txtNombreConductor" 
+                                     Height="35" 
+                                     FontSize="14" 
+                                     Padding="10,5"
+                                     BorderThickness="2"
+                                     BorderBrush="#dee2e6"/>
+                        </StackPanel>
+
+                        <!-- Tipo de Documento -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Tipo Documento:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="cmbTipoDocumento" Height="35" FontSize="14" Padding="5">
+                                <ComboBoxItem Content="DNI" IsSelected="True"/>
+                                <ComboBoxItem Content="RUC"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Número Documento -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Número Documento:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="txtNumeroDocumento" 
+                                     Height="35" 
+                                     FontSize="14" 
+                                     Padding="10,5"
+                                     BorderThickness="2"
+                                     BorderBrush="#dee2e6"/>
+                        </StackPanel>
+
+                        <!-- Teléfono -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Teléfono:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="txtTelefono" 
+                                     Height="35" 
+                                     FontSize="14" 
+                                     Padding="10,5"
+                                     BorderThickness="2"
+                                     BorderBrush="#dee2e6"/>
+                        </StackPanel>
+
+                        <!-- Licencia -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Licencia:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="txtLicencia" 
+                                     Height="35" 
+                                     FontSize="14" 
+                                     Padding="10,5"
+                                     BorderThickness="2"
+                                     BorderBrush="#dee2e6"/>
+                        </StackPanel>
+
+                        <!-- Transporte -->
+                        <StackPanel Margin="0,10">
+                            <Label Content="Transporte:" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="txtTransporte" 
+                                     Height="35" 
+                                     FontSize="14" 
+                                     Padding="10,5"
+                                     BorderThickness="2"
+                                     BorderBrush="#dee2e6"/>
+                        </StackPanel>
+
+                        <!-- Botones -->
+                        <StackPanel Orientation="Horizontal" 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,30,0,0">
+
+                            <Button x:Name="btnRegistrar" 
+                                    Content="Registrar Conductor" 
+                                    Background="#28a745"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Padding="20,12"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Cursor="Hand"
+                                    Margin="0,0,15,0"
+                                    Click="BtnRegistrar_Click"/>
+
+                            <Button x:Name="btnLimpiar" 
+                                    Content="Limpiar" 
+                                    Background="#6c757d"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Padding="20,12"
+                                    FontWeight="Bold"
+                                    FontSize="14"
+                                    Cursor="Hand"
+                                    Margin="15,0,0,0"
+                                    Click="BtnLimpiar_Click"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

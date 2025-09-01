@@ -5,8 +5,213 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemoA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Sistema de Gestión de Transporte - Menú Principal" 
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#f8f9fa" Offset="0"/>
+                <GradientStop Color="#e9ecef" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#343a40" Padding="20,15">
+            <Grid>
+                <TextBlock Text="Sistema de Gestión de Transporte" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White"
+                          VerticalAlignment="Center"/>
+
+                <Button x:Name="btnCerrarSesion" 
+                       Content="Cerrar Sesión" 
+                       HorizontalAlignment="Right"
+                       Background="#dc3545"
+                       Foreground="White"
+                       BorderThickness="0"
+                       Padding="15,8"
+                       FontWeight="Bold"
+                       Cursor="Hand"
+                       Click="BtnCerrarSesion_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Contenido Principal -->
+        <ScrollViewer Grid.Row="1" Margin="20">
+            <StackPanel>
+
+                <!-- Título del menú -->
+                <TextBlock Text="Menú Principal" 
+                          FontSize="28" 
+                          FontWeight="Bold" 
+                          HorizontalAlignment="Center"
+                          Margin="0,20,0,30"
+                          Foreground="#333"/>
+
+                <!-- Grid de opciones del menú -->
+                <UniformGrid Columns="3" Margin="0,20">
+
+                    <!-- Operaciones -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="20" 
+                           Margin="10"
+                           BorderThickness="2"
+                           BorderBrush="#dee2e6">
+                        <StackPanel>
+                            <TextBlock Text="📊 Operaciones" 
+                                      FontSize="20" 
+                                      FontWeight="Bold" 
+                                      HorizontalAlignment="Center"
+                                      Margin="0,0,0,15"
+                                      Foreground="#495057"/>
+
+                            <Button Content="Ingresos" 
+                                   Margin="0,5" 
+                                   Height="35"
+                                   Background="#007bff"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnIngresos_Click"/>
+
+                            <Button Content="Salidas" 
+                                   Margin="0,5" 
+                                   Height="35"
+                                   Background="#007bff"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnSalidas_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Mantenimientos -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="20" 
+                           Margin="10"
+                           BorderThickness="2"
+                           BorderBrush="#dee2e6">
+                        <StackPanel>
+                            <TextBlock Text="⚙️ Mantenimientos" 
+                                      FontSize="20" 
+                                      FontWeight="Bold" 
+                                      HorizontalAlignment="Center"
+                                      Margin="0,0,0,15"
+                                      Foreground="#495057"/>
+
+                            <Button Content="Conductores" 
+                                   Margin="0,3" 
+                                   Height="30"
+                                   Background="#28a745"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnConductores_Click"/>
+
+                            <Button Content="Lista Conductores" 
+                                   Margin="0,3" 
+                                   Height="30"
+                                   Background="#28a745"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnListaConductores_Click"/>
+
+                            <Button Content="Transportistas" 
+                                   Margin="0,3" 
+                                   Height="30"
+                                   Background="#28a745"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnTransportistas_Click"/>
+
+                            <Button Content="Camiones" 
+                                   Margin="0,3" 
+                                   Height="30"
+                                   Background="#28a745"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnCamiones_Click"/>
+
+                            <Button Content="Productos" 
+                                   Margin="0,3" 
+                                   Height="30"
+                                   Background="#28a745"
+                                   Foreground="White"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnProductos_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Reportes -->
+                    <Border Background="White" 
+                           CornerRadius="10" 
+                           Padding="20" 
+                           Margin="10"
+                           BorderThickness="2"
+                           BorderBrush="#dee2e6">
+                        <StackPanel>
+                            <TextBlock Text="📈 Reportes" 
+                                      FontSize="20" 
+                                      FontWeight="Bold" 
+                                      HorizontalAlignment="Center"
+                                      Margin="0,0,0,15"
+                                      Foreground="#495057"/>
+
+                            <Button Content="Cargas" 
+                                   Margin="0,5" 
+                                   Height="35"
+                                   Background="#ffc107"
+                                   Foreground="Black"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnReporteCargas_Click"/>
+
+                            <Button Content="Ingresos" 
+                                   Margin="0,5" 
+                                   Height="35"
+                                   Background="#ffc107"
+                                   Foreground="Black"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnReporteIngresos_Click"/>
+
+                            <Button Content="Salidas" 
+                                   Margin="0,5" 
+                                   Height="35"
+                                   Background="#ffc107"
+                                   Foreground="Black"
+                                   BorderThickness="0"
+                                   FontWeight="Bold"
+                                   Cursor="Hand"
+                                   Click="BtnReporteSalidas_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                </UniformGrid>
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
